@@ -1,0 +1,241 @@
+---
+// キャッチコピーとフォントの比較用ページ（確認が終わったら削除する）
+import Logo from '../components/Logo.astro';
+const description = 'NOCTA キャッチコピー・フォント比較';
+const title = 'NOCTA';
+const ogImage = new URL('/og.jpg', Astro.site).href;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>キャッチコピー・フォント比較｜NOCTA</title>
+<meta name="description" content={description}>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#0F0F10">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NOCTA">
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:url" content={canonical}>
+<meta property="og:image" content={ogImage}>
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="image" href="/images/hero-window.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;family=Shippori+Mincho:wght@500;600&amp;family=Zen+Old+Mincho:wght@500;600&amp;family=Noto+Serif+JP:wght@500&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style is:global>
+img{height:auto}
+.nc-hero-btns{margin-top:16px}
+body{margin:0;background:#0F0F10}
+a{color:#EDEAE4}a:hover{color:#E3A857}
+@keyframes nc-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.nc-track{animation:nc-marquee 40s linear infinite}
+.nc-card{transition:border-color .4s ease, transform .4s ease}
+.nc-card:hover{border-color:rgba(227,168,87,0.45);transform:translateY(-3px)}
+.nc-zoom{overflow:hidden}
+.nc-zoom img{transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.nc-zoom:hover img{transform:scale(1.05)}
+.nc-btn{transition:filter .3s ease, transform .3s ease}
+.nc-btn:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.nc-arrow{transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.nc-btn:hover .nc-arrow{transform:translateX(4px)}
+.nc-cta{position:relative;overflow:hidden}
+.nc-cta::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:nc-shine 4.2s ease-in-out infinite}
+@keyframes nc-shine{0%,72%{left:-60%}100%{left:130%}}
+@keyframes nc-steam{0%{opacity:0;transform:translateY(8px)}40%{opacity:.9}100%{opacity:0;transform:translateY(-14px)}}
+.nc-plan-deco{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.nc-plan-deco img{position:absolute;filter:drop-shadow(0 18px 22px rgba(0,0,0,0.55))}
+.nc-plan-deco .d1{right:-70px;top:70px;width:340px;opacity:.55;transform:rotate(-24deg)}
+.nc-plan-deco .d2{left:5%;top:120px;width:120px;opacity:.75;transform:rotate(-28deg)}
+.nc-plan-deco .d3{left:-70px;bottom:-50px;width:330px;opacity:.5;transform:rotate(12deg)}
+.nc-plan-deco .d4{right:6%;bottom:36px;width:110px;opacity:.6;transform:rotate(22deg)}
+.nc-plan-deco .d5{left:30%;top:-60px;width:220px;opacity:.18;transform:rotate(180deg);filter:blur(2px)}
+@media (max-width: 760px){
+  .nc-plan-deco .d1{width:200px;right:-70px;top:30px;opacity:.4}
+  .nc-plan-deco .d2{width:70px;left:-10px;top:40px;opacity:.6}
+  .nc-plan-deco .d3{width:200px;left:-80px;bottom:40px;opacity:.35}
+  .nc-plan-deco .d4{width:70px;right:-10px;bottom:30px}
+}
+.nc-bags:hover .nc-bag-l{transform:rotate(-9deg) translateX(-10px)}
+.nc-bags:hover .nc-bag-r{transform:rotate(9deg) translateX(10px)}
+.nc-bags:hover .nc-bag-c{transform:translateY(-8px)}
+.nc-faq summary{list-style:none;cursor:pointer}
+.nc-faq summary::-webkit-details-marker{display:none}
+.nc-faq[open] .nc-chev{transform:rotate(180deg)}
+.nc-chev{transition:transform .3s ease}
+.nc-hero-img{transform:scaleX(-1)}
+@media (max-width: 960px){
+  .nc-hide-tab{display:none !important}
+  .nc-why{grid-template-columns:1fr 1fr !important}
+  .nc-why-big{grid-column:1 / -1 !important;grid-row:auto !important}
+  .nc-how{grid-template-columns:1fr !important}
+  .nc-how-photo{min-height:360px !important}
+}
+@media (max-width: 760px){
+  .nc-hide-sp{display:none !important}
+  .nc-why{grid-template-columns:1fr !important}
+  .nc-hero{min-height:720px !important;align-items:flex-end !important}
+  .nc-hero-img{object-position:30% 0 !important}
+  .nc-hero-shade{background:linear-gradient(180deg, rgba(15,15,16,0.1) 0%, rgba(15,15,16,0.55) 38%, #0F0F10 70%) !important}
+  .nc-bags{transform:scale(0.6);margin:-60px -80px -70px !important}
+  .nc-sticky-note{display:none !important}
+  .nc-sticky{padding-left:18px !important}
+  .nc-logo-name{font-size:21px !important}
+  .nc-head-btn{padding:10px 18px !important}
+  .nc-hero-btns{width:100%;flex-direction:column;margin-top:20px}
+  .nc-hero-btns > a{justify-content:center;width:100%}
+  .nc-product{min-height:340px !important}
+  .nc-interlude{min-height:420px !important}
+  .nc-final-shade{background:linear-gradient(180deg, #0F0F10 0%, rgba(15,15,16,0.7) 25%, rgba(15,15,16,0.66) 75%, #0F0F10 100%) !important}
+}
+@keyframes nc-appear{from{opacity:0;transform:translateY(24px);visibility:hidden}to{opacity:1;transform:none;visibility:visible}}
+@supports (animation-timeline: scroll()){.nc-sticky-wrap{animation:nc-appear linear both;animation-timeline:scroll(root);animation-range:600px 760px}}
+@media (prefers-reduced-motion: reduce){.nc-track{animation:none}.nc-cta::after{animation:none;display:none}}
+
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div style="font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif; color: #EDEAE4; background: #0F0F10; font-size: 15px; line-height: 1.85; letter-spacing: 0.03em; overflow-x: clip">
+  <div style="position: relative; z-index: 30; background: #E3A857; color: #0F0F10; padding: 14px clamp(20px, 5vw, 56px); font-size: 14px; font-weight: 700; display: flex; gap: 16px; flex-wrap: wrap"><span>パターンA</span><span style="font-weight: 500">コピー：月が出たら、コーヒーの時間。</span><span style="font-weight: 500">見出しフォント：Shippori Mincho（しっぽり明朝）</span></div>
+  <div style="position: relative">
+  <!-- Header -->
+  <header style="position: absolute; top: 0; left: 0; right: 0; z-index: 10">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 22px clamp(20px, 5vw, 56px); display: flex; align-items: center; justify-content: space-between; gap: 24px">
+      <a href="#top" aria-label="NOCTA トップへ" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #EDEAE4">
+        <Logo id="header-a" />
+      </a>
+      <nav class="nc-hide-sp nc-hide-tab" aria-label="メイン" style="display: flex; gap: 28px; font-size: 13px">
+        <a href="#why" style="color: #C9C4BB; text-decoration: none">特長</a>
+        <a href="#how" style="color: #C9C4BB; text-decoration: none">はじめ方</a>
+        <a href="#beans" style="color: #C9C4BB; text-decoration: none">今月の豆</a>
+        <a href="#plan" style="color: #C9C4BB; text-decoration: none">プラン</a>
+        <a href="#faq" style="color: #C9C4BB; text-decoration: none">FAQ</a>
+      </nav>
+      <a class="nc-btn nc-head-btn" href="#plan" style="background: #E3A857; color: #0F0F10; font-weight: 700; font-size: 13px; padding: 10px 10px 10px 20px; border-radius: 999px; text-decoration: none; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 10px; white-space: nowrap">初回 ¥980で試す<span class="nc-hide-sp" style="font-size: 11px; padding: 3px 9px; border-radius: 999px; background: #0F0F10; color: #E3A857">50%OFF</span></a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="pattern-a" class="nc-hero" style="position: relative; min-height: 820px; display: flex; align-items: center; isolation: isolate">
+    <img class="nc-hero-img" src="/images/hero-window.webp" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; z-index: -2" width="1920" height="1280" decoding="async" fetchpriority="high">
+    <div class="nc-hero-shade" aria-hidden="true" style="position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(15,15,16,0.7) 0%, rgba(15,15,16,0) 22%), linear-gradient(90deg, rgba(15,15,16,0.94) 0%, rgba(15,15,16,0.72) 38%, rgba(15,15,16,0.05) 72%), linear-gradient(180deg, rgba(15,15,16,0) 60%, #0F0F10 100%)"></div>
+    <div style="width: 100%; max-width: 1280px; margin: 0 auto; padding: 140px clamp(20px, 5vw, 56px) clamp(64px, 8vw, 112px); box-sizing: border-box">
+      <div style="max-width: 700px; display: flex; flex-direction: column; gap: 28px; align-items: flex-start">
+        <p style="margin: 0; display: inline-flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: 0.2em; color: #C9C4BB; padding: 8px 16px; border: 1px solid rgba(237,234,228,0.18); border-radius: 999px; background: rgba(15,15,16,0.4)"><span style="width: 6px; height: 6px; border-radius: 50%; background: #E3A857"></span>夜のためのコーヒー定期便</p>
+        <h1 style="margin: 0; font-family: 'Shippori Mincho', serif; font-weight: 500; font-size: clamp(40px, 5.6vw, 82px); line-height: 1.3; letter-spacing: 0.06em"><span style="color: #E3A857">月</span>が出たら、<br>コーヒーの時間。</h1>
+        <p style="margin: 0; max-width: 30em; color: #C9C4BB; text-wrap: pretty">カフェインを気にせず楽しめるデカフェと、ゆっくり味わう深煎りを。焙煎したての豆を、毎月ポストへお届けします。</p>
+        <div style="display: flex; flex-direction: column; gap: 14px; align-items: flex-start">
+          <p style="margin: 0; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap"><span style="font-size: 13px; color: #C9C4BB">定期便の初回</span><s style="font-size: 14px; color: #8E897F">通常 ¥1,980〜</s><span style="font-family: 'Instrument Serif', serif; font-size: 52px; line-height: 1; color: #EDEAE4">¥980</span><span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #E3A857; color: #0F0F10">初回50%OFF</span></p>
+          <div class="nc-hero-btns" style="display: flex; gap: 12px; flex-wrap: wrap">
+            <a class="nc-btn nc-cta" href="#plan" style="background: #E3A857; color: #0F0F10; font-weight: 700; font-size: 16px; padding: 18px 32px; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; min-height: 44px; box-sizing: border-box; box-shadow: 0 20px 50px -18px rgba(227,168,87,0.6)">初回 ¥980 で試してみる<svg class="nc-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+            <a class="nc-btn" href="#beans" style="padding: 18px 28px; border-radius: 999px; text-decoration: none; border: 1px solid rgba(237,234,228,0.28); color: #EDEAE4; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; background: rgba(15,15,16,0.35)">今月の豆を見る</a>
+          </div>
+          <ul style="margin: 4px 0 0; padding: 0; list-style: none; display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; color: #C9C4BB">
+            <li style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="#E3A857" stroke-width="1.8"><path d="M2 7.5l3 3 7-7"></path></svg>送料無料</li>
+            <li style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="#E3A857" stroke-width="1.8"><path d="M2 7.5l3 3 7-7"></path></svg>いつでも解約OK</li>
+            <li style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="#E3A857" stroke-width="1.8"><path d="M2 7.5l3 3 7-7"></path></svg>回数しばりなし</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </div>
+  <div style="position: relative; z-index: 30; background: #E3A857; color: #0F0F10; padding: 14px clamp(20px, 5vw, 56px); font-size: 14px; font-weight: 700; display: flex; gap: 16px; flex-wrap: wrap"><span>パターンB</span><span style="font-weight: 500">コピー：夜は、ゆっくり淹れる。</span><span style="font-weight: 500">見出しフォント：Zen Old Mincho</span></div>
+  <div style="position: relative">
+  <!-- Header -->
+  <header style="position: absolute; top: 0; left: 0; right: 0; z-index: 10">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 22px clamp(20px, 5vw, 56px); display: flex; align-items: center; justify-content: space-between; gap: 24px">
+      <a href="#top" aria-label="NOCTA トップへ" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #EDEAE4">
+        <Logo id="header-b" />
+      </a>
+      <nav class="nc-hide-sp nc-hide-tab" aria-label="メイン" style="display: flex; gap: 28px; font-size: 13px">
+        <a href="#why" style="color: #C9C4BB; text-decoration: none">特長</a>
+        <a href="#how" style="color: #C9C4BB; text-decoration: none">はじめ方</a>
+        <a href="#beans" style="color: #C9C4BB; text-decoration: none">今月の豆</a>
+        <a href="#plan" style="color: #C9C4BB; text-decoration: none">プラン</a>
+        <a href="#faq" style="color: #C9C4BB; text-decoration: none">FAQ</a>
+      </nav>
+      <a class="nc-btn nc-head-btn" href="#plan" style="background: #E3A857; color: #0F0F10; font-weight: 700; font-size: 13px; padding: 10px 10px 10px 20px; border-radius: 999px; text-decoration: none; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 10px; white-space: nowrap">初回 ¥980で試す<span class="nc-hide-sp" style="font-size: 11px; padding: 3px 9px; border-radius: 999px; background: #0F0F10; color: #E3A857">50%OFF</span></a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="pattern-b" class="nc-hero" style="position: relative; min-height: 820px; display: flex; align-items: center; isolation: isolate">
+    <img class="nc-hero-img" src="/images/hero-window.webp" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; z-index: -2" width="1920" height="1280" decoding="async" fetchpriority="high">
+    <div class="nc-hero-shade" aria-hidden="true" style="position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(15,15,16,0.7) 0%, rgba(15,15,16,0) 22%), linear-gradient(90deg, rgba(15,15,16,0.94) 0%, rgba(15,15,16,0.72) 38%, rgba(15,15,16,0.05) 72%), linear-gradient(180deg, rgba(15,15,16,0) 60%, #0F0F10 100%)"></div>
+    <div style="width: 100%; max-width: 1280px; margin: 0 auto; padding: 140px clamp(20px, 5vw, 56px) clamp(64px, 8vw, 112px); box-sizing: border-box">
+      <div style="max-width: 700px; display: flex; flex-direction: column; gap: 28px; align-items: flex-start">
+        <p style="margin: 0; display: inline-flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: 0.2em; color: #C9C4BB; padding: 8px 16px; border: 1px solid rgba(237,234,228,0.18); border-radius: 999px; background: rgba(15,15,16,0.4)"><span style="width: 6px; height: 6px; border-radius: 50%; background: #E3A857"></span>夜のためのコーヒー定期便</p>
+        <h1 style="margin: 0; font-family: 'Zen Old Mincho', serif; font-weight: 500; font-size: clamp(42px, 6vw, 88px); line-height: 1.3; letter-spacing: 0.08em">夜は、<br>ゆっくり<span style="color: #E3A857">淹れる</span>。</h1>
+        <p style="margin: 0; max-width: 30em; color: #C9C4BB; text-wrap: pretty">カフェインを気にせず楽しめるデカフェと、ゆっくり味わう深煎りを。焙煎したての豆を、毎月ポストへお届けします。</p>
+        <div style="display: flex; flex-direction: column; gap: 14px; align-items: flex-start">
+          <p style="margin: 0; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap"><span style="font-size: 13px; color: #C9C4BB">定期便の初回</span><s style="font-size: 14px; color: #8E897F">通常 ¥1,980〜</s><span style="font-family: 'Instrument Serif', serif; font-size: 52px; line-height: 1; color: #EDEAE4">¥980</span><span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #E3A857; color: #0F0F10">初回50%OFF</span></p>
+          <div class="nc-hero-btns" style="display: flex; gap: 12px; flex-wrap: wrap">
+            <a class="nc-btn nc-cta" href="#plan" style="background: #E3A857; color: #0F0F10; font-weight: 700; font-size: 16px; padding: 18px 32px; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; min-height: 44px; box-sizing: border-box; box-shadow: 0 20px 50px -18px rgba(227,168,87,0.6)">初回 ¥980 で試してみる<svg class="nc-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+            <a class="nc-btn" href="#beans" style="padding: 18px 28px; border-radius: 999px; text-decoration: none; border: 1px solid rgba(237,234,228,0.28); color: #EDEAE4; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; background: rgba(15,15,16,0.35)">今月の豆を見る</a>
+          </div>
+          <ul style="margin: 4px 0 0; padding: 0; list-style: none; display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; color: #C9C4BB">
+            <li style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="#E3A857" stroke-width="1.8"><path d="M2 7.5l3 3 7-7"></path></svg>送料無料</li>
+            <li style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="#E3A857" stroke-width="1.8"><path d="M2 7.5l3 3 7-7"></path></svg>いつでも解約OK</li>
+            <li style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="#E3A857" stroke-width="1.8"><path d="M2 7.5l3 3 7-7"></path></svg>回数しばりなし</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </div>
+  <div style="position: relative; z-index: 30; background: #E3A857; color: #0F0F10; padding: 14px clamp(20px, 5vw, 56px); font-size: 14px; font-weight: 700; display: flex; gap: 16px; flex-wrap: wrap"><span>パターンC</span><span style="font-weight: 500">コピー：Good night, good coffee.（＋日本語サブ）</span><span style="font-weight: 500">見出しフォント：Instrument Serif ＋ Noto Serif JP</span></div>
+  <div style="position: relative">
+  <!-- Header -->
+  <header style="position: absolute; top: 0; left: 0; right: 0; z-index: 10">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 22px clamp(20px, 5vw, 56px); display: flex; align-items: center; justify-content: space-between; gap: 24px">
+      <a href="#top" aria-label="NOCTA トップへ" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #EDEAE4">
+        <Logo id="header-c" />
+      </a>
+      <nav class="nc-hide-sp nc-hide-tab" aria-label="メイン" style="display: flex; gap: 28px; font-size: 13px">
+        <a href="#why" style="color: #C9C4BB; text-decoration: none">特長</a>
+        <a href="#how" style="color: #C9C4BB; text-decoration: none">はじめ方</a>
+        <a href="#beans" style="color: #C9C4BB; text-decoration: none">今月の豆</a>
+        <a href="#plan" style="color: #C9C4BB; text-decoration: none">プラン</a>
+        <a href="#faq" style="color: #C9C4BB; text-decoration: none">FAQ</a>
+      </nav>
+      <a class="nc-btn nc-head-btn" href="#plan" style="background: #E3A857; color: #0F0F10; font-weight: 700; font-size: 13px; padding: 10px 10px 10px 20px; border-radius: 999px; text-decoration: none; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 10px; white-space: nowrap">初回 ¥980で試す<span class="nc-hide-sp" style="font-size: 11px; padding: 3px 9px; border-radius: 999px; background: #0F0F10; color: #E3A857">50%OFF</span></a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="pattern-c" class="nc-hero" style="position: relative; min-height: 820px; display: flex; align-items: center; isolation: isolate">
+    <img class="nc-hero-img" src="/images/hero-window.webp" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; z-index: -2" width="1920" height="1280" decoding="async" fetchpriority="high">
+    <div class="nc-hero-shade" aria-hidden="true" style="position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(15,15,16,0.7) 0%, rgba(15,15,16,0) 22%), linear-gradient(90deg, rgba(15,15,16,0.94) 0%, rgba(15,15,16,0.72) 38%, rgba(15,15,16,0.05) 72%), linear-gradient(180deg, rgba(15,15,16,0) 60%, #0F0F10 100%)"></div>
+    <div style="width: 100%; max-width: 1280px; margin: 0 auto; padding: 140px clamp(20px, 5vw, 56px) clamp(64px, 8vw, 112px); box-sizing: border-box">
+      <div style="max-width: 700px; display: flex; flex-direction: column; gap: 28px; align-items: flex-start">
+        <p style="margin: 0; display: inline-flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: 0.2em; color: #C9C4BB; padding: 8px 16px; border: 1px solid rgba(237,234,228,0.18); border-radius: 999px; background: rgba(15,15,16,0.4)"><span style="width: 6px; height: 6px; border-radius: 50%; background: #E3A857"></span>夜のためのコーヒー定期便</p>
+        <h1 style="margin: 0; display: flex; flex-direction: column; gap: 18px"><span style="font-family: 'Instrument Serif', serif; font-weight: 400; font-size: clamp(50px, 7vw, 104px); line-height: 1; letter-spacing: 0">Good night,<br><span style="font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: #E3A857; letter-spacing: 0">good coffee.</span></span><span style="font-family: 'Noto Serif JP', serif; font-weight: 500; font-size: clamp(20px, 2vw, 28px); letter-spacing: 0.12em; color: #DAD5CC">眠る前に、いちばんいい一杯を。</span></h1>
+        <p style="margin: 0; max-width: 30em; color: #C9C4BB; text-wrap: pretty">カフェインを気にせず楽しめるデカフェと、ゆっくり味わう深煎りを。焙煎したての豆を、毎月ポストへお届けします。</p>
+        <div style="display: flex; flex-direction: column; gap: 14px; align-items: flex-start">
+          <p style="margin: 0; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap"><span style="font-size: 13px; color: #C9C4BB">定期便の初回</span><s style="font-size: 14px; color: #8E897F">通常 ¥1,980〜</s><span style="font-family: 'Instrument Serif', serif; font-size: 52px; line-height: 1; color: #EDEAE4">¥980</span><span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #E3A857; color: #0F0F10">初回50%OFF</span></p>
+          <div class="nc-hero-btns" style="display: flex; gap: 12px; flex-wrap: wrap">
+            <a class="nc-btn nc-cta" href="#plan" style="background: #E3A857; color: #0F0F10; font-weight: 700; font-size: 16px; padding: 18px 32px; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; min-height: 44px; box-sizing: border-box; box-shadow: 0 20px 50px -18px rgba(227,168,87,0.6)">初回 ¥980 で試してみる<svg class="nc-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+            <a class="nc-btn" href="#beans" style="padding: 18px 28px; border-radius: 999px; text-decoration: none; border: 1px solid rgba(237,234,228,0.28); color: #EDEAE4; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; background: rgba(15,15,16,0.35)">今月の豆を見る</a>
+          </div>
+          <ul style="margin: 4px 0 0; padding: 0; list-style: none; display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; color: #C9C4BB">
+            <li style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="#E3A857" stroke-width="1.8"><path d="M2 7.5l3 3 7-7"></path></svg>送料無料</li>
+            <li style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="#E3A857" stroke-width="1.8"><path d="M2 7.5l3 3 7-7"></path></svg>いつでも解約OK</li>
+            <li style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="#E3A857" stroke-width="1.8"><path d="M2 7.5l3 3 7-7"></path></svg>回数しばりなし</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </div>
+</div>
+</body>
+</html>
