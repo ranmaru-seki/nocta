@@ -1,0 +1,90 @@
+---
+// コーヒー豆のパッケージ（スタンドパウチ）。色とラベルの中身だけを変えて3種類を描く
+interface Props {
+  no: string;        // 例: "01"
+  type: string;      // 例: "DECAF"
+  name: string;      // 例: "Colombia"
+  roast: string;     // 例: "中深煎り"
+  notes: string;     // 例: "カカオ・キャラメル"
+  level: number;     // 焙煎度 1〜5
+  theme: 'navy' | 'amber' | 'wine';
+  size?: 'sm' | 'lg';
+  tilt?: number;     // 傾き(deg)
+  class?: string;
+}
+const { no, type, name, roast, notes, level, theme, size = 'sm', tilt = 0, class: className = '' } = Astro.props;
+const dots = [1, 2, 3, 4, 5];
+---
+<div class:list={['nc-pouch', `is-${theme}`, `is-${size}`, className]} style={`--tilt: ${tilt}deg`}>
+  <div class="nc-pouch-seal" aria-hidden="true"></div>
+  <div class="nc-pouch-head">
+    <svg aria-hidden="true" width="14" height="14" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15.5 3.5A8.5 8.5 0 1 0 18.5 15 6.5 6.5 0 0 1 15.5 3.5z"></path></svg>
+    <span>No.{no}</span>
+  </div>
+  <div class="nc-pouch-label">
+    <span class="nc-pouch-type">{type}</span>
+    <span class="nc-pouch-name">{name}</span>
+    <span class="nc-pouch-rule" aria-hidden="true"></span>
+    <span class="nc-pouch-notes">{notes}</span>
+    <span class="nc-pouch-dots" role="img" aria-label={`焙煎度 5段階中${level}`}>
+      {dots.map((d) => <i class={d <= level ? 'on' : ''}></i>)}
+    </span>
+    <span class="nc-pouch-roast">{roast}</span>
+  </div>
+  <div class="nc-pouch-foot">
+    <span>NOCTA</span><span>100g</span>
+  </div>
+</div>
+
+<style>
+  .nc-pouch {
+    --bg1: #26323B; --bg2: #141B21; --ink: #EDEAE4; --label: #EFE6D6; --label-ink: #1A1612; --mark: #E3A857;
+    position: relative; flex-shrink: 0; width: 168px; height: 244px; box-sizing: border-box;
+    padding: 30px 14px 14px; display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+    color: var(--ink); border-radius: 8px 8px 18px 18px;
+    background:
+      linear-gradient(100deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 32%, rgba(255,255,255,0) 72%, rgba(255,255,255,0.06) 100%),
+      linear-gradient(180deg, var(--bg1), var(--bg2));
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08), 0 40px 60px -26px rgba(0,0,0,0.85);
+    transform: rotate(var(--tilt));
+    transition: transform .6s cubic-bezier(.2,.8,.2,1);
+  }
+  .nc-pouch.is-lg { width: 206px; height: 300px; padding: 36px 16px 16px; }
+  .nc-pouch.is-amber { --bg1: #EDBB72; --bg2: #C98A3A; --ink: #1A1209; --label: #121011; --label-ink: #EDEAE4; --mark: #121011; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18), 0 50px 80px -30px rgba(227,168,87,0.55); }
+  .nc-pouch.is-wine { --bg1: #4A2531; --bg2: #26121A; }
+
+  /* 上部のジッパーとギザギザのシール */
+  .nc-pouch-seal {
+    position: absolute; left: 0; right: 0; top: 0; height: 16px; border-radius: 8px 8px 0 0;
+    background: repeating-linear-gradient(90deg, rgba(255,255,255,0.16) 0 1px, rgba(0,0,0,0) 1px 4px);
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+  }
+  .nc-pouch-seal::after { content: ""; position: absolute; left: 10px; right: 10px; top: 22px; border-top: 1px dashed rgba(255,255,255,0.22); }
+  .is-amber .nc-pouch-seal::after { border-top-color: rgba(0,0,0,0.25); }
+  /* 切り込み（ノッチ） */
+  .nc-pouch::before, .nc-pouch::after { content: ""; position: absolute; top: 8px; width: 6px; height: 6px; border-radius: 50%; background: #0F0F10; }
+  .nc-pouch::before { left: -3px; }
+  .nc-pouch::after { right: -3px; }
+
+  .nc-pouch-head { width: 100%; display: flex; justify-content: space-between; align-items: center; font-size: 9px; letter-spacing: 0.24em; color: var(--mark); font-weight: 700; margin-top: 4px; }
+
+  /* アーチ型ラベル */
+  .nc-pouch-label {
+    width: 100%; box-sizing: border-box; padding: 20px 10px 12px; margin: 10px 0;
+    display: flex; flex-direction: column; align-items: center; gap: 5px; text-align: center;
+    background: var(--label); color: var(--label-ink); border-radius: 999px 999px 10px 10px;
+    box-shadow: inset 0 0 0 3px var(--label), inset 0 0 0 4px rgba(127,100,60,0.35);
+  }
+  .nc-pouch-type { font-size: 7.5px; letter-spacing: 0.26em; font-weight: 700; opacity: 0.7; }
+  .nc-pouch-name { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 27px; line-height: 1; }
+  .is-lg .nc-pouch-name { font-size: 34px; }
+  .nc-pouch-rule { width: 26px; border-top: 1px solid currentColor; opacity: 0.4; margin: 2px 0; }
+  .nc-pouch-notes { font-size: 9px; letter-spacing: 0.06em; }
+  .nc-pouch-dots { display: flex; gap: 3px; margin-top: 4px; }
+  .nc-pouch-dots i { width: 5px; height: 5px; border-radius: 50%; border: 1px solid currentColor; opacity: 0.5; }
+  .nc-pouch-dots i.on { background: #C98A3A; border-color: #C98A3A; opacity: 1; }
+  .is-amber .nc-pouch-dots i.on { background: #E3A857; border-color: #E3A857; }
+  .nc-pouch-roast { font-size: 8px; letter-spacing: 0.14em; opacity: 0.7; }
+
+  .nc-pouch-foot { width: 100%; display: flex; justify-content: space-between; font-family: 'Instrument Serif', serif; font-size: 12px; letter-spacing: 0.2em; opacity: 0.8; }
+</style>
