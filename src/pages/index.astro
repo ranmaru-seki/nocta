@@ -1,0 +1,426 @@
+---
+const title = 'NOCTA｜夜のためのコーヒー定期便';
+const description = 'カフェインを気にせず楽しめるデカフェと、ゆっくり味わう深煎りを。焙煎したての豆を毎月ポストへ届ける、夜のためのコーヒー定期便。初回はどのプランも¥980。（ポートフォリオ用の架空ブランドです）';
+const ogImage = new URL('/og.jpg', Astro.site).href;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{title}</title>
+<meta name="description" content={description}>
+<link rel="canonical" href={canonical}>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#0F0F10">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NOCTA">
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:url" content={canonical}>
+<meta property="og:image" content={ogImage}>
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="image" href="/images/hero-window.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+<style is:global>
+body{margin:0;background:#0F0F10}
+a{color:#EDEAE4}a:hover{color:#E3A857}
+@keyframes nc-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.nc-track{animation:nc-marquee 40s linear infinite}
+.nc-card{transition:border-color .4s ease, transform .4s ease}
+.nc-card:hover{border-color:rgba(227,168,87,0.45);transform:translateY(-3px)}
+.nc-zoom{overflow:hidden}
+.nc-zoom img{transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.nc-zoom:hover img{transform:scale(1.05)}
+.nc-btn{transition:filter .3s ease, transform .3s ease}
+.nc-btn:hover{filter:brightness(1.08);transform:translateY(-2px)}
+.nc-arrow{transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.nc-btn:hover .nc-arrow{transform:translateX(4px)}
+.nc-cta{position:relative;overflow:hidden}
+.nc-cta::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:nc-shine 4.2s ease-in-out infinite}
+@keyframes nc-shine{0%,72%{left:-60%}100%{left:130%}}
+@keyframes nc-steam{0%{opacity:0;transform:translateY(8px)}40%{opacity:.9}100%{opacity:0;transform:translateY(-14px)}}
+.nc-bag{transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.nc-bags:hover .nc-bag-l{transform:rotate(-9deg) translateX(-10px)}
+.nc-bags:hover .nc-bag-r{transform:rotate(9deg) translateX(10px)}
+.nc-bags:hover .nc-bag-c{transform:translateY(-8px)}
+.nc-faq summary{list-style:none;cursor:pointer}
+.nc-faq summary::-webkit-details-marker{display:none}
+.nc-faq[open] .nc-chev{transform:rotate(180deg)}
+.nc-chev{transition:transform .3s ease}
+.nc-hero-img{transform:scaleX(-1)}
+@media (max-width: 960px){
+  .nc-why{grid-template-columns:1fr 1fr !important}
+  .nc-why-big{grid-column:1 / -1 !important;grid-row:auto !important}
+  .nc-how{grid-template-columns:1fr !important}
+  .nc-how-photo{min-height:360px !important}
+}
+@media (max-width: 760px){
+  .nc-hide-sp{display:none !important}
+  .nc-why{grid-template-columns:1fr !important}
+  .nc-hero{min-height:720px !important;align-items:flex-end !important}
+  .nc-hero-img{object-position:30% 0 !important}
+  .nc-hero-shade{background:linear-gradient(180deg, rgba(15,15,16,0.1) 0%, rgba(15,15,16,0.55) 38%, #0F0F10 70%) !important}
+  .nc-bags{transform:scale(0.6);margin:-60px -80px -70px !important}
+  .nc-sticky-note{display:none !important}
+  .nc-sticky{padding-left:18px !important}
+  .nc-product{min-height:340px !important}
+  .nc-interlude{min-height:420px !important}
+  .nc-final-shade{background:linear-gradient(180deg, #0F0F10 0%, rgba(15,15,16,0.7) 25%, rgba(15,15,16,0.66) 75%, #0F0F10 100%) !important}
+}
+@keyframes nc-appear{from{opacity:0;transform:translateY(24px);visibility:hidden}to{opacity:1;transform:none;visibility:visible}}
+@supports (animation-timeline: scroll()){.nc-sticky-wrap{animation:nc-appear linear both;animation-timeline:scroll(root);animation-range:600px 760px}}
+@media (prefers-reduced-motion: reduce){.nc-track{animation:none}.nc-cta::after{animation:none;display:none}}
+
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div style="font-family: 'Zen Kaku Gothic New', 'Hiragino Sans', sans-serif; color: #EDEAE4; background: #0F0F10; font-size: 15px; line-height: 1.85; letter-spacing: 0.03em; overflow-x: clip">
+
+  <!-- Header -->
+  <header style="position: absolute; top: 0; left: 0; right: 0; z-index: 10">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 22px clamp(20px, 5vw, 56px); display: flex; align-items: center; justify-content: space-between; gap: 24px">
+      <a href="#top" aria-label="NOCTA トップへ" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #EDEAE4">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M15.5 3.5A8.5 8.5 0 1 0 18.5 15 6.5 6.5 0 0 1 15.5 3.5z"></path></svg>
+        <span style="font-weight: 700; font-size: 18px; letter-spacing: 0.28em">NOCTA</span>
+      </a>
+      <nav class="nc-hide-sp" aria-label="メイン" style="display: flex; gap: 28px; font-size: 13px">
+        <a href="#why" style="color: #C9C4BB; text-decoration: none">特長</a>
+        <a href="#how" style="color: #C9C4BB; text-decoration: none">はじめ方</a>
+        <a href="#beans" style="color: #C9C4BB; text-decoration: none">今月の豆</a>
+        <a href="#plan" style="color: #C9C4BB; text-decoration: none">プラン</a>
+        <a href="#faq" style="color: #C9C4BB; text-decoration: none">FAQ</a>
+      </nav>
+      <a class="nc-btn" href="#plan" style="background: #E3A857; color: #0F0F10; font-weight: 700; font-size: 13px; padding: 10px 10px 10px 20px; border-radius: 999px; text-decoration: none; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 10px; white-space: nowrap">初回 ¥980で試す<span style="font-size: 11px; padding: 3px 9px; border-radius: 999px; background: #0F0F10; color: #E3A857">50%OFF</span></a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="top" class="nc-hero" style="position: relative; min-height: 820px; display: flex; align-items: center; isolation: isolate">
+    <img class="nc-hero-img" src="/images/hero-window.webp" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; z-index: -2" width="1920" height="1280" decoding="async" fetchpriority="high">
+    <div class="nc-hero-shade" aria-hidden="true" style="position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(15,15,16,0.7) 0%, rgba(15,15,16,0) 22%), linear-gradient(90deg, rgba(15,15,16,0.94) 0%, rgba(15,15,16,0.72) 38%, rgba(15,15,16,0.05) 72%), linear-gradient(180deg, rgba(15,15,16,0) 60%, #0F0F10 100%)"></div>
+    <div style="width: 100%; max-width: 1280px; margin: 0 auto; padding: 140px clamp(20px, 5vw, 56px) clamp(64px, 8vw, 112px); box-sizing: border-box">
+      <div style="max-width: 700px; display: flex; flex-direction: column; gap: 28px; align-items: flex-start">
+        <p style="margin: 0; display: inline-flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: 0.2em; color: #C9C4BB; padding: 8px 16px; border: 1px solid rgba(237,234,228,0.18); border-radius: 999px; background: rgba(15,15,16,0.4)"><span style="width: 6px; height: 6px; border-radius: 50%; background: #E3A857"></span>夜のためのコーヒー定期便</p>
+        <h1 style="margin: 0; font-weight: 500; font-size: clamp(42px, 6vw, 88px); line-height: 1.22; letter-spacing: 0.02em">夜の一杯を、<br>もっと<span style="font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: #E3A857; letter-spacing: 0">good</span>に。</h1>
+        <p style="margin: 0; max-width: 30em; color: #C9C4BB; text-wrap: pretty">カフェインを気にせず楽しめるデカフェと、ゆっくり味わう深煎りを。焙煎したての豆を、毎月ポストへお届けします。</p>
+        <div style="display: flex; flex-direction: column; gap: 14px; align-items: flex-start">
+          <p style="margin: 0; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap"><span style="font-size: 13px; color: #C9C4BB">定期便の初回</span><s style="font-size: 14px; color: #8E897F">通常 ¥1,980〜</s><span style="font-family: 'Instrument Serif', serif; font-size: 52px; line-height: 1; color: #EDEAE4">¥980</span><span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #E3A857; color: #0F0F10">初回50%OFF</span></p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap">
+            <a class="nc-btn nc-cta" href="#plan" style="background: #E3A857; color: #0F0F10; font-weight: 700; font-size: 16px; padding: 18px 32px; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; min-height: 44px; box-sizing: border-box; box-shadow: 0 20px 50px -18px rgba(227,168,87,0.6)">初回 ¥980 で試してみる<svg class="nc-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+            <a class="nc-btn" href="#beans" style="padding: 18px 28px; border-radius: 999px; text-decoration: none; border: 1px solid rgba(237,234,228,0.28); color: #EDEAE4; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; background: rgba(15,15,16,0.35)">今月の豆を見る</a>
+          </div>
+          <ul style="margin: 4px 0 0; padding: 0; list-style: none; display: flex; gap: 18px; flex-wrap: wrap; font-size: 13px; color: #C9C4BB">
+            <li style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="#E3A857" stroke-width="1.8"><path d="M2 7.5l3 3 7-7"></path></svg>送料無料</li>
+            <li style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="#E3A857" stroke-width="1.8"><path d="M2 7.5l3 3 7-7"></path></svg>いつでも解約OK</li>
+            <li style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="#E3A857" stroke-width="1.8"><path d="M2 7.5l3 3 7-7"></path></svg>回数しばりなし</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product -->
+  <section style="position: relative; max-width: 1280px; margin: 0 auto; padding: clamp(24px, 4vw, 48px) clamp(20px, 5vw, 56px) clamp(72px, 8vw, 112px); display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: clamp(32px, 5vw, 72px); align-items: center">
+    <div class="nc-product" style="position: relative; min-height: 440px; display: flex; align-items: flex-end; justify-content: center">
+      <div aria-hidden="true" style="position: absolute; left: 50%; top: 50%; width: 620px; height: 620px; max-width: 120%; transform: translate(-50%, -50%); background: radial-gradient(closest-side, rgba(227,168,87,0.2), rgba(227,168,87,0) 70%)"></div>
+      <img src="/images/beans-pile.webp" alt="" aria-hidden="true" style="position: absolute; left: 50%; bottom: 0; width: 92%; max-width: 600px; transform: translateX(-50%); opacity: 0.95; pointer-events: none; filter: drop-shadow(0 24px 30px rgba(0,0,0,0.5))" width="800" height="505" decoding="async" loading="lazy">
+      <img src="/images/cherry-small.webp" alt="" aria-hidden="true" style="position: absolute; right: 2%; top: 8%; width: 120px; transform: rotate(18deg); pointer-events: none; filter: drop-shadow(0 14px 18px rgba(0,0,0,0.5))" width="500" height="410" decoding="async" loading="lazy">
+      <div class="nc-bags" style="position: relative; display: flex; gap: clamp(12px, 2vw, 24px); align-items: flex-end; justify-content: center; margin-bottom: 36px">
+        <div class="nc-bag nc-bag-l" style="width: 160px; height: 226px; border-radius: 10px 10px 16px 16px; background: linear-gradient(180deg, #2E2A26, #1C1A18); border: 1px solid rgba(237,234,228,0.12); display: flex; flex-direction: column; justify-content: space-between; padding: 18px; box-sizing: border-box; transform: rotate(-6deg); box-shadow: 0 40px 60px -26px rgba(0,0,0,0.8)">
+          <span style="font-size: 10px; letter-spacing: 0.24em; color: #A39E95">DECAF</span>
+          <div><p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 28px; line-height: 1">Colombia</p><p style="margin: 6px 0 0; font-size: 11px; color: #A39E95">カカオ・キャラメル</p></div>
+        </div>
+        <div class="nc-bag nc-bag-c" style="width: 200px; height: 284px; border-radius: 10px 10px 18px 18px; background: #E3A857; color: #0F0F10; display: flex; flex-direction: column; justify-content: space-between; padding: 22px; box-sizing: border-box; box-shadow: 0 50px 80px -30px rgba(227,168,87,0.55)">
+          <span style="display: flex; justify-content: space-between; align-items: center; font-size: 10px; letter-spacing: 0.22em; font-weight: 700">NOCTA<svg aria-hidden="true" width="16" height="16" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15.5 3.5A8.5 8.5 0 1 0 18.5 15 6.5 6.5 0 0 1 15.5 3.5z"></path></svg></span>
+          <div><p style="margin: 0; font-size: 10px; letter-spacing: 0.2em; font-weight: 700">NIGHT BLEND</p><p style="margin: 4px 0 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 38px; line-height: 1">Midnight</p><p style="margin: 8px 0 0; font-size: 11px; font-weight: 500">ナッツ・ダークチョコレート</p></div>
+        </div>
+        <div class="nc-bag nc-bag-r" style="width: 160px; height: 226px; border-radius: 10px 10px 16px 16px; background: linear-gradient(180deg, #2E2A26, #1C1A18); border: 1px solid rgba(237,234,228,0.12); display: flex; flex-direction: column; justify-content: space-between; padding: 18px; box-sizing: border-box; transform: rotate(6deg); box-shadow: 0 40px 60px -26px rgba(0,0,0,0.8)">
+          <span style="font-size: 10px; letter-spacing: 0.24em; color: #A39E95">SINGLE ORIGIN</span>
+          <div><p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 28px; line-height: 1">Ethiopia</p><p style="margin: 6px 0 0; font-size: 11px; color: #A39E95">ベリー・紅茶</p></div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 20px">
+      <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22px; color: #E3A857">Night Roast Club</p>
+      <h2 style="margin: 0; font-weight: 500; font-size: clamp(28px, 3.2vw, 44px); line-height: 1.45">毎月、3つの夜の味から。</h2>
+      <p style="margin: 0; color: #C9C4BB; max-width: 30em">定番の「Midnight」、デカフェの「Colombia」、季節で変わるシングルオリジン。その日の気分と、眠るまでの時間に合わせて選べます。</p>
+      <dl style="margin: 8px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: rgba(237,234,228,0.1); border-radius: 16px; overflow: hidden">
+        <div style="background: #141416; padding: 18px 16px"><dt style="font-size: 11px; letter-spacing: 0.14em; color: #A39E95">1袋</dt><dd style="margin: 4px 0 0; font-family: 'Instrument Serif', serif; font-size: 30px; line-height: 1.1">100<span style="font-size: 15px">g</span></dd></div>
+        <div style="background: #141416; padding: 18px 16px"><dt style="font-size: 11px; letter-spacing: 0.14em; color: #A39E95">目安</dt><dd style="margin: 4px 0 0; font-family: 'Instrument Serif', serif; font-size: 30px; line-height: 1.1">10<span style="font-size: 15px">杯分</span></dd></div>
+        <div style="background: #141416; padding: 18px 16px"><dt style="font-size: 11px; letter-spacing: 0.14em; color: #A39E95">お届け</dt><dd style="margin: 4px 0 0; font-family: 'Instrument Serif', serif; font-size: 30px; line-height: 1.1">2<span style="font-size: 15px">週 / 4週</span></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div aria-hidden="true" style="border-top: 1px solid rgba(237,234,228,0.08); border-bottom: 1px solid rgba(237,234,228,0.08); padding: 22px 0; overflow: hidden">
+    <div class="nc-track" style="display: flex; gap: 48px; width: max-content; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 30px; color: #6F6A62; white-space: nowrap">
+      <span>Ethiopia</span><span>·</span><span>Colombia</span><span>·</span><span>Guatemala</span><span>·</span><span>Kenya</span><span>·</span><span>Brazil</span><span>·</span><span>Decaf</span><span>·</span><span>Night Blend</span><span>·</span>
+      <span>Ethiopia</span><span>·</span><span>Colombia</span><span>·</span><span>Guatemala</span><span>·</span><span>Kenya</span><span>·</span><span>Brazil</span><span>·</span><span>Decaf</span><span>·</span><span>Night Blend</span><span>·</span>
+    </div>
+  </div>
+
+  <!-- Why (bento) -->
+  <section id="why" style="max-width: 1280px; margin: 0 auto; padding: clamp(88px, 10vw, 140px) clamp(20px, 5vw, 56px)">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 48px">
+      <h2 style="margin: 0; font-weight: 500; font-size: clamp(30px, 3.4vw, 48px); line-height: 1.4">夜に、ちょうどいい。<br><span style="color: #A39E95">NOCTAの4つの理由</span></h2>
+      <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22px; color: #E3A857">Why NOCTA</p>
+    </div>
+    <div class="nc-why" style="display: grid; grid-template-columns: 1.25fr 1fr 1fr; grid-auto-rows: minmax(300px, auto); gap: 16px">
+      <article class="nc-card nc-zoom nc-why-big" style="grid-row: span 2; position: relative; border-radius: 20px; border: 1px solid rgba(237,234,228,0.08); min-height: 520px; display: flex; flex-direction: column; justify-content: flex-end; padding: 32px; gap: 12px; isolation: isolate">
+        <img src="/images/table-night.webp" alt="夜のテーブルに置かれたコーヒーカップと本" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2" width="1100" height="864" decoding="async" loading="lazy">
+        <div aria-hidden="true" style="position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(15,15,16,0) 30%, rgba(15,15,16,0.92) 85%)"></div>
+        <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22px; color: #E3A857">01</p>
+        <h3 style="margin: 0; font-weight: 500; font-size: 26px">選べるデカフェ</h3>
+        <p style="margin: 0; color: #C9C4BB; font-size: 14px; max-width: 26em">カフェインを抜いても、香りとコクはそのまま。寝る前の一杯も、気兼ねなく楽しめます。</p>
+      </article>
+      <article class="nc-card nc-zoom" style="background: #18181B; border: 1px solid rgba(237,234,228,0.08); border-radius: 20px; display: flex; flex-direction: column">
+        <div style="height: 150px; overflow: hidden; border-radius: 19px 19px 0 0"><img src="/images/roasting.webp" alt="焙煎機から流れ出る焙煎したての豆" style="width: 100%; height: 100%; object-fit: cover; display: block" width="900" height="596" decoding="async" loading="lazy"></div>
+        <div style="padding: 24px 28px 28px; display: flex; flex-direction: column; gap: 10px">
+          <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 20px; color: #E3A857">02</p>
+          <h3 style="margin: 0; font-weight: 500; font-size: 20px">焙煎したてを発送</h3>
+          <p style="margin: 0; color: #A39E95; font-size: 14px">注文を受けてから小ロットで焙煎。いちばん香る状態で届けます。</p>
+        </div>
+      </article>
+      <article class="nc-card nc-zoom" style="background: #18181B; border: 1px solid rgba(237,234,228,0.08); border-radius: 20px; display: flex; flex-direction: column">
+        <div style="height: 150px; overflow: hidden; border-radius: 19px 19px 0 0"><img src="/images/farm.webp" alt="赤く実ったコーヒーチェリー" style="width: 100%; height: 100%; object-fit: cover; display: block" width="900" height="600" decoding="async" loading="lazy"></div>
+        <div style="padding: 24px 28px 28px; display: flex; flex-direction: column; gap: 10px">
+          <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 20px; color: #E3A857">03</p>
+          <h3 style="margin: 0; font-weight: 500; font-size: 20px">毎月、産地が変わる</h3>
+          <p style="margin: 0; color: #A39E95; font-size: 14px">ロースターが選ぶ季節の豆と、定番のナイトブレンド。飽きずに続けられます。</p>
+        </div>
+      </article>
+      <article class="nc-card" style="position: relative; overflow: hidden; background: #18181B; border: 1px solid rgba(237,234,228,0.08); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 10px; justify-content: flex-end">
+        <svg aria-hidden="true" width="40" height="40" viewBox="0 0 28 28" fill="none" stroke="#E3A857" stroke-width="1.2" style="position: absolute; top: 28px; left: 28px"><rect x="4" y="8" width="20" height="14" rx="2"></rect><path d="M4 11l10 6 10-6"></path></svg>
+        <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 20px; color: #E3A857">04</p>
+        <h3 style="margin: 0; font-weight: 500; font-size: 20px">ポストに届く</h3>
+        <p style="margin: 0; color: #A39E95; font-size: 14px">薄型パッケージで、受け取りの手間なし。不在でも大丈夫です。</p>
+      </article>
+      <article class="nc-card" style="background: #E3A857; color: #0F0F10; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px">
+        <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 36px; line-height: 1.1">Skip, pause,<br>anytime.</p>
+        <p style="margin: 0; font-size: 14px; font-weight: 500">スキップ・休止・解約は、マイページからいつでも。回数のしばりもありません。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Interlude -->
+  <section class="nc-interlude" style="position: relative; min-height: 520px; display: flex; align-items: center; isolation: isolate; overflow: hidden">
+    <img src="/images/candles.webp" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%; z-index: -2" width="1920" height="1080" decoding="async" loading="lazy">
+    <div aria-hidden="true" style="position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, #0F0F10 0%, rgba(15,15,16,0.45) 30%, rgba(15,15,16,0.55) 70%, #0F0F10 100%)"></div>
+    <div style="width: 100%; max-width: 1280px; margin: 0 auto; padding: 96px clamp(20px, 5vw, 56px); text-align: center; display: flex; flex-direction: column; gap: 18px; align-items: center">
+      <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(22px, 2.4vw, 30px); color: #E3A857">a small ritual</p>
+      <p style="margin: 0; font-weight: 500; font-size: clamp(26px, 3.4vw, 48px); line-height: 1.6; text-shadow: 0 2px 30px rgba(0,0,0,0.6)">一日の終わりに、<br>ちいさな儀式を。</p>
+      <p style="margin: 0; color: #DAD5CC; max-width: 32em; text-shadow: 0 2px 20px rgba(0,0,0,0.7)">お湯を沸かして、豆を挽いて、ゆっくり注ぐ。その数分が、夜をすこし特別にしてくれます。</p>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" style="max-width: 1280px; margin: 0 auto; padding: clamp(88px, 10vw, 128px) clamp(20px, 5vw, 56px)">
+    <div class="nc-how" style="display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(32px, 5vw, 80px); align-items: stretch">
+      <div class="nc-zoom nc-how-photo" style="position: relative; border-radius: 24px; min-height: 560px">
+        <img src="/images/drip-night.webp" alt="ランプの灯りの下でハンドドリップするコーヒー" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 30% center; border-radius: 24px" width="1200" height="801" decoding="async" loading="lazy">
+        <p style="position: absolute; left: 20px; bottom: 20px; margin: 0; font-size: 12px; letter-spacing: 0.08em; padding: 8px 14px; border-radius: 999px; background: rgba(15,15,16,0.72); color: #EDEAE4">淹れ方カードつき</p>
+      </div>
+      <div style="display: flex; flex-direction: column; justify-content: center; gap: 40px">
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22px; color: #E3A857">How it works</p>
+          <h2 style="margin: 0; font-weight: 500; font-size: clamp(28px, 3vw, 40px)">はじめ方は、3ステップ。</h2>
+        </div>
+        <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+          <li style="display: grid; grid-template-columns: 72px 1fr; gap: 16px; padding: 24px 0; border-top: 1px solid rgba(237,234,228,0.1)">
+            <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 52px; line-height: 1; color: #E3A857">1.</span>
+            <div><h3 style="margin: 0 0 6px; font-weight: 500; font-size: 20px">好みを3問で診断</h3><p style="margin: 0; color: #A39E95; font-size: 14px">酸味・苦味・飲む時間帯から、あなたに合う豆を選びます。</p></div>
+          </li>
+          <li style="display: grid; grid-template-columns: 72px 1fr; gap: 16px; padding: 24px 0; border-top: 1px solid rgba(237,234,228,0.1)">
+            <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 52px; line-height: 1; color: #E3A857">2.</span>
+            <div><h3 style="margin: 0 0 6px; font-weight: 500; font-size: 20px">プランと周期を選ぶ</h3><p style="margin: 0; color: #A39E95; font-size: 14px">量とお届け間隔は、あとからいつでも変えられます。</p></div>
+          </li>
+          <li style="display: grid; grid-template-columns: 72px 1fr; gap: 16px; padding: 24px 0; border-top: 1px solid rgba(237,234,228,0.1); border-bottom: 1px solid rgba(237,234,228,0.1)">
+            <span style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 52px; line-height: 1; color: #E3A857">3.</span>
+            <div><h3 style="margin: 0 0 6px; font-weight: 500; font-size: 20px">ポストで受け取る</h3><p style="margin: 0; color: #A39E95; font-size: 14px">焙煎メモと、おすすめの淹れ方カードを同封します。</p></div>
+          </li>
+        </ol>
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding: 22px 24px; border-radius: 20px; background: #18181B; border: 1px solid rgba(237,234,228,0.1)">
+          <p style="margin: 0; font-weight: 500; font-size: 16px">診断は30秒。今夜の一杯から。<span style="display: block; font-size: 13px; font-weight: 400; color: #A39E95">初回はどのプランも ¥980・送料無料</span></p>
+          <a class="nc-btn" href="#plan" style="background: #E3A857; color: #0F0F10; font-weight: 700; padding: 14px 24px; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; min-height: 44px; box-sizing: border-box; white-space: nowrap">好みを診断する<svg class="nc-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beans -->
+  <section id="beans" style="background: #141416; border-top: 1px solid rgba(237,234,228,0.06); border-bottom: 1px solid rgba(237,234,228,0.06)">
+    <div style="max-width: 1280px; margin: 0 auto; padding: clamp(88px, 10vw, 140px) clamp(20px, 5vw, 56px)">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 48px">
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22px; color: #E3A857">This month</p>
+          <h2 style="margin: 0; font-weight: 500; font-size: clamp(28px, 3vw, 40px)">今月のラインナップ</h2>
+        </div>
+        <p style="margin: 0; font-size: 13px; color: #A39E95">2026年12月のお届け</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 16px">
+        <article class="nc-card" style="background: #0F0F10; border: 1px solid rgba(237,234,228,0.1); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
+          <div style="position: relative; height: 220px; display: flex; align-items: center; justify-content: center; background: radial-gradient(closest-side, rgba(227,168,87,0.22), rgba(227,168,87,0) 80%)"><img src="/images/roast-dark.webp" alt="深煎りのコーヒー豆" style="width: 78%; max-height: 190px; object-fit: contain; filter: drop-shadow(0 18px 20px rgba(0,0,0,0.6))" width="800" height="516" decoding="async" loading="lazy"></div>
+          <div style="padding: 8px 32px 32px; display: flex; flex-direction: column; gap: 18px">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px"><p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 36px; line-height: 1">Midnight</p><span style="font-size: 11px; color: #0F0F10; background: #E3A857; padding: 4px 10px; border-radius: 999px; font-weight: 700">定番</span></div>
+            <p style="margin: 0; font-size: 13px; color: #A39E95">ナイトブレンド ／ 深煎り</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap"><span style="font-size: 12px; padding: 4px 12px; border: 1px solid rgba(237,234,228,0.18); border-radius: 999px">ナッツ</span><span style="font-size: 12px; padding: 4px 12px; border: 1px solid rgba(237,234,228,0.18); border-radius: 999px">ダークチョコ</span></div>
+            <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 11px; letter-spacing: 0.16em; color: #A39E95">ROAST</span><div role="img" aria-label="焙煎度 5段階中5" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px"><span style="height: 4px; border-radius: 2px; background: #E3A857"></span><span style="height: 4px; border-radius: 2px; background: #E3A857"></span><span style="height: 4px; border-radius: 2px; background: #E3A857"></span><span style="height: 4px; border-radius: 2px; background: #E3A857"></span><span style="height: 4px; border-radius: 2px; background: #E3A857"></span></div></div>
+          </div>
+        </article>
+        <article class="nc-card" style="background: #0F0F10; border: 1px solid rgba(237,234,228,0.1); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
+          <div style="position: relative; height: 220px; display: flex; align-items: center; justify-content: center; background: radial-gradient(closest-side, rgba(227,168,87,0.16), rgba(227,168,87,0) 80%)"><img src="/images/beans-ground.webp" alt="コーヒー豆と挽いた粉、コーヒーの葉" style="width: 82%; max-height: 190px; object-fit: contain; filter: drop-shadow(0 18px 20px rgba(0,0,0,0.6))" width="800" height="543" decoding="async" loading="lazy"></div>
+          <div style="padding: 8px 32px 32px; display: flex; flex-direction: column; gap: 18px">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px"><p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 36px; line-height: 1">Colombia</p><span style="font-size: 11px; padding: 4px 10px; border-radius: 999px; border: 1px solid #E3A857; color: #E3A857">デカフェ</span></div>
+            <p style="margin: 0; font-size: 13px; color: #A39E95">コロンビア ／ 中深煎り</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap"><span style="font-size: 12px; padding: 4px 12px; border: 1px solid rgba(237,234,228,0.18); border-radius: 999px">カカオ</span><span style="font-size: 12px; padding: 4px 12px; border: 1px solid rgba(237,234,228,0.18); border-radius: 999px">キャラメル</span></div>
+            <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 11px; letter-spacing: 0.16em; color: #A39E95">ROAST</span><div role="img" aria-label="焙煎度 5段階中4" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px"><span style="height: 4px; border-radius: 2px; background: #E3A857"></span><span style="height: 4px; border-radius: 2px; background: #E3A857"></span><span style="height: 4px; border-radius: 2px; background: #E3A857"></span><span style="height: 4px; border-radius: 2px; background: #E3A857"></span><span style="height: 4px; border-radius: 2px; background: #2E2E33"></span></div></div>
+          </div>
+        </article>
+        <article class="nc-card" style="background: #0F0F10; border: 1px solid rgba(237,234,228,0.1); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column">
+          <div style="position: relative; height: 220px; display: flex; align-items: center; justify-content: center; background: radial-gradient(closest-side, rgba(217,120,110,0.16), rgba(217,120,110,0) 80%)"><img src="/images/cherry.webp" alt="赤いコーヒーチェリー" style="width: 52%; max-height: 196px; object-fit: contain; filter: drop-shadow(0 18px 20px rgba(0,0,0,0.6))" width="700" height="694" decoding="async" loading="lazy"></div>
+          <div style="padding: 8px 32px 32px; display: flex; flex-direction: column; gap: 18px">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px"><p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 36px; line-height: 1">Ethiopia</p><span style="font-size: 11px; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(237,234,228,0.3); color: #C9C4BB">季節限定</span></div>
+            <p style="margin: 0; font-size: 13px; color: #A39E95">エチオピア グジ ／ 浅煎り</p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap"><span style="font-size: 12px; padding: 4px 12px; border: 1px solid rgba(237,234,228,0.18); border-radius: 999px">ベリー</span><span style="font-size: 12px; padding: 4px 12px; border: 1px solid rgba(237,234,228,0.18); border-radius: 999px">紅茶</span></div>
+            <div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 11px; letter-spacing: 0.16em; color: #A39E95">ROAST</span><div role="img" aria-label="焙煎度 5段階中2" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4px"><span style="height: 4px; border-radius: 2px; background: #E3A857"></span><span style="height: 4px; border-radius: 2px; background: #E3A857"></span><span style="height: 4px; border-radius: 2px; background: #2E2E33"></span><span style="height: 4px; border-radius: 2px; background: #2E2E33"></span><span style="height: 4px; border-radius: 2px; background: #2E2E33"></span></div></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Voices -->
+  <section style="max-width: 1280px; margin: 0 auto; padding: clamp(88px, 10vw, 140px) clamp(20px, 5vw, 56px)">
+    <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 48px">
+      <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22px; color: #E3A857">Voices</p>
+      <h2 style="margin: 0; font-weight: 500; font-size: clamp(28px, 3vw, 40px)">夜の一杯が、たのしみに。</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: 16px">
+      <div class="nc-zoom" style="position: relative; border-radius: 20px; min-height: 420px">
+        <img src="/images/reading.webp" alt="ブランケットにくるまり本を読みながらコーヒーを飲む人" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 20px" width="1100" height="733" decoding="async" loading="lazy">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <figure style="margin: 0; padding: 36px; border-radius: 20px; background: #18181B; display: flex; flex-direction: column; gap: 22px; flex: 1">
+          <svg aria-hidden="true" width="28" height="21" viewBox="0 0 32 24" fill="#E3A857"><path d="M0 24V13C0 5 4 1 12 0v5c-4 1-6 3-6 7h6v12H0zm18 0V13c0-8 4-12 12-13v5c-4 1-6 3-6 7h6v12H18z"></path></svg>
+          <blockquote style="margin: 0; font-size: 18px; line-height: 1.9">夜にコーヒーを我慢していたけど、デカフェとは思えない香り。仕事終わりの一杯が楽しみになりました。</blockquote>
+          <figcaption style="font-size: 12px; color: #A39E95">30代・エンジニア ／ ※デモ用サンプル</figcaption>
+        </figure>
+        <figure style="margin: 0; padding: 36px; border-radius: 20px; background: #18181B; display: flex; flex-direction: column; gap: 22px; flex: 1">
+          <svg aria-hidden="true" width="28" height="21" viewBox="0 0 32 24" fill="#E3A857"><path d="M0 24V13C0 5 4 1 12 0v5c-4 1-6 3-6 7h6v12H0zm18 0V13c0-8 4-12 12-13v5c-4 1-6 3-6 7h6v12H18z"></path></svg>
+          <blockquote style="margin: 0; font-size: 18px; line-height: 1.9">毎月ちがう産地が届くので、自分の好みが分かってきた。焙煎メモを読むのも楽しい。</blockquote>
+          <figcaption style="font-size: 12px; color: #A39E95">40代・編集者 ／ ※デモ用サンプル</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plan -->
+  <section id="plan" style="position: relative; background: #141416; border-top: 1px solid rgba(237,234,228,0.06); overflow: hidden">
+    <img class="nc-hide-sp" src="/images/roast-dark.webp" alt="" aria-hidden="true" style="position: absolute; right: -80px; top: 60px; width: 380px; opacity: 0.45; transform: rotate(-24deg); pointer-events: none" width="800" height="516" decoding="async" loading="lazy">
+    
+    <div style="position: relative; max-width: 1280px; margin: 0 auto; padding: clamp(88px, 10vw, 140px) clamp(20px, 5vw, 56px)">
+      <div style="text-align: center; display: flex; flex-direction: column; gap: 14px; align-items: center; margin-bottom: 64px">
+        <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 22px; color: #E3A857">Plans</p>
+        <h2 style="margin: 0; font-weight: 500; font-size: clamp(28px, 3vw, 44px)">飲む量で、選べる3プラン</h2>
+        <p style="margin: 0; display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; font-size: 14px; padding: 10px 20px; border-radius: 20px; border: 1px solid rgba(227,168,87,0.4); color: #EDEAE4"><span style="font-weight: 700; color: #E3A857">初回限定</span>どのプランも、初回は ¥980（送料無料）</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px; align-items: stretch">
+        <article style="background: #0F0F10; border: 1px solid rgba(237,234,228,0.12); border-radius: 20px; padding: 36px; display: flex; flex-direction: column; gap: 18px">
+          <h3 style="margin: 0; font-size: 13px; letter-spacing: 0.2em; color: #C9C4BB; font-weight: 500">LIGHT</h3>
+          <div style="display: flex; flex-direction: column; gap: 4px"><p style="margin: 0; display: flex; align-items: baseline; gap: 8px"><span style="font-size: 12px; color: #A39E95">初回</span><span style="font-family: 'Instrument Serif', serif; font-size: 52px; line-height: 1">¥980</span></p><p style="margin: 0; font-size: 13px; color: #A39E95">2回目以降 ¥1,980 / 月</p></div>
+          <p style="margin: 0; color: #C9C4BB; font-size: 14px; padding-top: 16px; border-top: 1px solid rgba(237,234,228,0.1)">100g × 1種　約10杯分</p>
+          <a class="nc-btn" href="#plan" style="margin-top: auto; text-align: center; padding: 16px; border-radius: 999px; border: 1px solid rgba(237,234,228,0.28); text-decoration: none; color: #EDEAE4; min-height: 44px; box-sizing: border-box">LIGHTではじめる</a>
+        </article>
+        <article style="position: relative; background: #1E1D1B; border: 1px solid #E3A857; border-radius: 20px; padding: 36px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 40px 80px -40px rgba(227,168,87,0.35)">
+          <span style="position: absolute; top: -13px; left: 36px; background: #E3A857; color: #0F0F10; font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 999px">いちばん人気</span>
+          <h3 style="margin: 0; font-size: 13px; letter-spacing: 0.2em; color: #E3A857; font-weight: 500">STANDARD</h3>
+          <div style="display: flex; flex-direction: column; gap: 4px"><p style="margin: 0; display: flex; align-items: baseline; gap: 8px"><span style="font-size: 12px; color: #A39E95">初回</span><span style="font-family: 'Instrument Serif', serif; font-size: 52px; line-height: 1">¥980</span><s style="font-size: 13px; color: #8E897F">¥3,480</s></p><p style="margin: 0; font-size: 13px; color: #A39E95">2回目以降 ¥3,480 / 月</p></div>
+          <p style="margin: 0; color: #C9C4BB; font-size: 14px; padding-top: 16px; border-top: 1px solid rgba(237,234,228,0.1)">100g × 2種　約20杯分</p>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: #C9C4BB">
+            <li style="display: flex; gap: 10px; align-items: center"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#E3A857" stroke-width="1.6"><path d="M2 7.5l3 3 7-7"></path></svg>デカフェとの組み合わせOK</li>
+            <li style="display: flex; gap: 10px; align-items: center"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#E3A857" stroke-width="1.6"><path d="M2 7.5l3 3 7-7"></path></svg>初回はドリッパー付き</li>
+          </ul>
+          <a class="nc-btn nc-cta" href="#plan" style="margin-top: auto; text-align: center; padding: 16px; border-radius: 999px; background: #E3A857; color: #0F0F10; font-weight: 700; text-decoration: none; min-height: 44px; box-sizing: border-box">STANDARDを ¥980 ではじめる</a>
+          <p style="margin: -6px 0 0; font-size: 12px; color: #A39E95; text-align: center">回数しばりなし。マイページからいつでも解約OK</p>
+        </article>
+        <article style="background: #0F0F10; border: 1px solid rgba(237,234,228,0.12); border-radius: 20px; padding: 36px; display: flex; flex-direction: column; gap: 18px">
+          <h3 style="margin: 0; font-size: 13px; letter-spacing: 0.2em; color: #C9C4BB; font-weight: 500">DECAF ONLY</h3>
+          <div style="display: flex; flex-direction: column; gap: 4px"><p style="margin: 0; display: flex; align-items: baseline; gap: 8px"><span style="font-size: 12px; color: #A39E95">初回</span><span style="font-family: 'Instrument Serif', serif; font-size: 52px; line-height: 1">¥980</span></p><p style="margin: 0; font-size: 13px; color: #A39E95">2回目以降 ¥3,680 / 月</p></div>
+          <p style="margin: 0; color: #C9C4BB; font-size: 14px; padding-top: 16px; border-top: 1px solid rgba(237,234,228,0.1)">デカフェ 100g × 2種　約20杯分</p>
+          <a class="nc-btn" href="#plan" style="margin-top: auto; text-align: center; padding: 16px; border-radius: 999px; border: 1px solid rgba(237,234,228,0.28); text-decoration: none; color: #EDEAE4; min-height: 44px; box-sizing: border-box">DECAFではじめる</a>
+        </article>
+      </div>
+      <ul style="margin: 40px 0 0; padding: 0; list-style: none; display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; font-size: 13px; color: #C9C4BB">
+        <li style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="#E3A857" stroke-width="1.8"><path d="M2 7.5l3 3 7-7"></path></svg>全プラン送料無料</li>
+        <li style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="#E3A857" stroke-width="1.8"><path d="M2 7.5l3 3 7-7"></path></svg>豆・中挽き・細挽きから選べる</li>
+        <li style="display: inline-flex; align-items: center; gap: 6px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="#E3A857" stroke-width="1.8"><path d="M2 7.5l3 3 7-7"></path></svg>スキップ・休止・解約いつでもOK</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="max-width: 880px; margin: 0 auto; padding: clamp(88px, 10vw, 140px) clamp(20px, 5vw, 56px)">
+    <h2 style="margin: 0 0 40px; font-weight: 500; font-size: clamp(28px, 3vw, 40px); text-align: center">よくある質問</h2>
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <details class="nc-faq" open="" style="background: #18181B; border-radius: 16px; padding: 22px 28px">
+        <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; font-weight: 500; font-size: 16px; min-height: 44px">デカフェのカフェインはどれくらいですか？<svg class="nc-chev" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6l5 5 5-5"></path></svg></summary>
+        <p style="margin: 10px 0 0; color: #A39E95; font-size: 14px">カフェインを97%以上取り除いた豆を使用しています。</p>
+      </details>
+      <details class="nc-faq" style="background: #18181B; border-radius: 16px; padding: 22px 28px">
+        <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; font-weight: 500; font-size: 16px; min-height: 44px">初回 ¥980 のあと、解約できますか？<svg class="nc-chev" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6l5 5 5-5"></path></svg></summary>
+        <p style="margin: 10px 0 0; color: #A39E95; font-size: 14px">はい。回数のしばりはないので、初回のお届け後に解約してもOKです。次回発送日の5日前までに、マイページから手続きできます。</p>
+      </details>
+      <details class="nc-faq" style="background: #18181B; border-radius: 16px; padding: 22px 28px">
+        <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; font-weight: 500; font-size: 16px; min-height: 44px">豆と粉、どちらで届きますか？<svg class="nc-chev" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6l5 5 5-5"></path></svg></summary>
+        <p style="margin: 10px 0 0; color: #A39E95; font-size: 14px">お申し込み時に、豆・中挽き・細挽きから選べます。</p>
+      </details>
+      <details class="nc-faq" style="background: #18181B; border-radius: 16px; padding: 22px 28px">
+        <summary style="display: flex; justify-content: space-between; align-items: center; gap: 20px; font-weight: 500; font-size: 16px; min-height: 44px">お届けをスキップできますか？<svg class="nc-chev" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6l5 5 5-5"></path></svg></summary>
+        <p style="margin: 10px 0 0; color: #A39E95; font-size: 14px">はい。マイページから、次回分のスキップや休止がいつでもできます。</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section style="position: relative; min-height: 640px; display: flex; align-items: center; isolation: isolate; overflow: hidden">
+    <img src="/images/cta-window.webp" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 70%; z-index: -2" width="1920" height="1280" decoding="async" loading="lazy">
+    <div class="nc-final-shade" aria-hidden="true" style="position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, #0F0F10 0%, rgba(15,15,16,0.55) 30%, rgba(15,15,16,0.5) 70%, #0F0F10 100%)"></div>
+    <div style="width: 100%; max-width: 1280px; margin: 0 auto; padding: clamp(104px, 12vw, 160px) clamp(20px, 5vw, 56px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px">
+      <p style="margin: 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: clamp(48px, 7vw, 104px); line-height: 1.05; text-shadow: 0 4px 40px rgba(0,0,0,0.5)">Good night,<br><span style="color: #E3A857">good coffee.</span></p>
+      <p style="margin: 0; color: #EDEAE4; text-shadow: 0 2px 20px rgba(0,0,0,0.7)">今夜の一杯から、はじめてみませんか。</p>
+      <a class="nc-btn nc-cta" href="#plan" style="background: #E3A857; color: #0F0F10; font-weight: 700; font-size: 16px; padding: 20px 40px; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; min-height: 44px; box-sizing: border-box; box-shadow: 0 20px 50px -18px rgba(227,168,87,0.6)">初回 ¥980 で試してみる<svg class="nc-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+      <p style="margin: 0; font-size: 13px; color: #DAD5CC; text-shadow: 0 2px 12px rgba(0,0,0,0.7)">送料無料・回数しばりなし・いつでも解約OK</p>
+    </div>
+  </section>
+
+  <!-- Sticky CTA -->
+  <div class="nc-sticky-wrap" style="position: sticky; bottom: 16px; z-index: 20; padding: 0 clamp(12px, 3vw, 32px); margin-top: -64px; pointer-events: none">
+    <div class="nc-sticky" style="pointer-events: auto; max-width: 720px; margin: 0 auto; background: rgba(24,24,27,0.92); border: 1px solid rgba(237,234,228,0.12); color: #EDEAE4; border-radius: 999px; padding: 8px 8px 8px 26px; display: flex; align-items: center; justify-content: space-between; gap: 14px; box-shadow: 0 16px 40px rgba(0,0,0,0.5)">
+      <p style="margin: 0; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; font-size: 13px"><span style="color: #E3A857; font-weight: 700">定期便の初回</span><span style="font-family: 'Instrument Serif', serif; font-size: 28px; line-height: 1">¥980</span><span class="nc-sticky-note" style="font-size: 12px; color: #A39E95">送料無料・いつでも解約OK</span></p>
+      <a class="nc-btn" href="#plan" style="background: #E3A857; color: #0F0F10; font-weight: 700; padding: 14px 24px; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; box-sizing: border-box; white-space: nowrap">今夜から試す<svg class="nc-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="border-top: 1px solid rgba(237,234,228,0.08); font-size: 12px; color: #A39E95; margin-top: 64px">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 40px clamp(20px, 5vw, 56px); display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap">
+      <span style="font-weight: 700; letter-spacing: 0.28em; color: #EDEAE4; font-size: 14px">NOCTA</span>
+      <nav aria-label="フッター" style="display: flex; gap: 22px; flex-wrap: wrap">
+        <a href="#top" style="color: #C9C4BB">特定商取引法に基づく表記</a>
+        <a href="#top" style="color: #C9C4BB">プライバシーポリシー</a>
+        <a href="#top" style="color: #C9C4BB">お問い合わせ</a>
+      </nav>
+      <span>※ポートフォリオ用の架空ブランドです</span>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>
